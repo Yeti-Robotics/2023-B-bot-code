@@ -4,23 +4,56 @@
 
 package frc.robot;
 
+
+import com.pathplanner.lib.auto.AutoBuilder;
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.util.LimelightHelpers;
 
 public class Robot extends TimedRobot {
-  private Command m_autonomousCommand;
+  private Command autonomousCommand;
+  private RobotContainer robotContainer;
+  AutoBuilder autoBuilder;
+  private AutoConstants.AutoModes previousSelectedAuto;
 
-  private RobotContainer m_robotContainer;
+  private static SendableChooser<AutoConstants.AutoModes> autoChooser;
 
   @Override
   public void robotInit() {
-    m_robotContainer = new RobotContainer();
+    robotContainer = new RobotContainer();
+    autoChooser = new SendableChooser<>();
+    autoChooser.setDefaultOption(AutoConstants.AutoModes.TESTING.name, AutoConstants.AutoModes.TESTING);
+    SmartDashboard.putData("Auto Chooser", autoChooser);
+    previousSelectedAuto = autoChooser.getSelected();
+
+
+    autonomousCommand =  AutoBuilder.buildAuto(previousSelectedAuto.name);
   }
 
   @Override
   public void robotPeriodic() {
-    CommandScheduler.getInstance().run(); 
+    CommandScheduler.getInstance().run();
+    var lastResult = LimelightHelpers.getLatestResults("limelight").targetingResults;
+    if (DriverStation.getAlliance().isPresent()) {
+      if (DriverStation.getAlliance().get() == (DriverStation.Alliance.Red)) {
+        Pose2d llPose = lastResult.getBotPose2d_wpiRed();
+        if (lastResult.valid) {
+          robotContainer.drivetrain.addVisionMeasurement(llPose, Timer.getFPGATimestamp());
+        }
+      } else {
+        Pose2d llPose = lastResult.getBotPose2d_wpiBlue();
+        if (lastResult.valid) {
+          robotContainer.drivetrain.addVisionMeasurement(llPose, Timer.getFPGATimestamp());
+        }
+
+      }
+    }
   }
 
   @Override
@@ -34,10 +67,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_robotContainer.getAutonomousCommand();
+    autonomousCommand = robotContainer.getAutonomousCommand();
 
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.schedule();
+    if (autonomousCommand != null) {
+      autonomousCommand.schedule();
     }
   }
 
@@ -49,8 +82,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
+    if (autonomousCommand != null) {
+      autonomousCommand.cancel();
     }
   }
 
