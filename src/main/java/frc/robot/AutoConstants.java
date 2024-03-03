@@ -19,7 +19,7 @@ public final class AutoConstants {
             MAX_THETA_ACCEL);
 
     public enum AutoModes {
-        TESTING("testing", DEFAULT_CONSTRAINTS);
+        TESTING("mid3ThreePiece", DEFAULT_CONSTRAINTS);
 
         public final String name;
         public final PathConstraints initConstraint;

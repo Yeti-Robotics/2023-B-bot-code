@@ -1,0 +1,37 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.33,
+      "y": 6.0
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "amp5NoteOne"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "amp5NoteTwo"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "amp5NoteThree"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "amp 5",
+  "choreoAuto": false
+}

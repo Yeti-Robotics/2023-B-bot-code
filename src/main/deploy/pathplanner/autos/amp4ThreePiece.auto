@@ -1,0 +1,37 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.29,
+      "y": 6.17
+    },
+    "rotation": 30.47811890739561
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "amp4NoteOne"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "amp4NoteTwo"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "amp4NoteThree"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "amp 4",
+  "choreoAuto": false
+}

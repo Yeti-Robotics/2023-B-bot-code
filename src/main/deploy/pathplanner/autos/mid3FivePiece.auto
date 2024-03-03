@@ -1,0 +1,49 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.21,
+      "y": 6.45
+    },
+    "rotation": 0.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "mid3NoteOne"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "mid3NoteTwo"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "mid3NoteThree"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "mid3NoteFour"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "mid3NoteFive"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "mid 3 amp side",
+  "choreoAuto": false
+}

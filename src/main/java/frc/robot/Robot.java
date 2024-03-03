@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
     previousSelectedAuto = autoChooser.getSelected();
 
 
-    autonomousCommand =  AutoBuilder.buildAuto(previousSelectedAuto.name);
+//    autonomousCommand =  AutoBuilder.buildAuto(previousSelectedAuto.name);
   }
 
   @Override
