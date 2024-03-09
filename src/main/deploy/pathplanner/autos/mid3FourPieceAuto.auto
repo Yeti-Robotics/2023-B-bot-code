@@ -18,9 +18,21 @@
           }
         },
         {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "mid3NoteTwo"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
           }
         },
         {
@@ -30,9 +42,21 @@
           }
         },
         {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
           "type": "path",
           "data": {
-            "pathName": "mid3NoteFour"
+            "pathName": "mid3NoteThree"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "mid3NoteFourAmp"
           }
         }
       ]
