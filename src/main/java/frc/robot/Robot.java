@@ -24,16 +24,23 @@ public class Robot extends TimedRobot {
 
   private static SendableChooser<AutoConstants.AutoModes> autoChooser;
 
+
   @Override
   public void robotInit() {
     robotContainer = new RobotContainer();
     autoChooser = new SendableChooser<>();
-    autoChooser.setDefaultOption(AutoConstants.AutoModes.TESTING.name, AutoConstants.AutoModes.TESTING);
+    autoChooser.setDefaultOption(AutoConstants.AutoModes.MID_3_THREE_PIECE.name, AutoConstants.AutoModes.MID_3_THREE_PIECE);
+    autoChooser.addOption(AutoConstants.AutoModes.TESTING.name, AutoConstants.AutoModes.TESTING);
+    autoChooser.addOption(AutoConstants.AutoModes.AMP_5_THREE_PIECE.name, AutoConstants.AutoModes.AMP_5_THREE_PIECE);
+    autoChooser.addOption(AutoConstants.AutoModes.SOURCE_4_THREE_PIECE.name, AutoConstants.AutoModes.SOURCE_4_THREE_PIECE);
+    autoChooser.addOption(AutoConstants.AutoModes.AMP_4_THREE_PIECE.name, AutoConstants.AutoModes.AMP_4_THREE_PIECE);
+    autoChooser.addOption(AutoConstants.AutoModes.NEW_AUTO.name, AutoConstants.AutoModes.NEW_AUTO);
+    autoChooser.addOption(AutoConstants.AutoModes.MID_3_THREE_PIECE.name, AutoConstants.AutoModes.MID_3_THREE_PIECE);
+
     SmartDashboard.putData("Auto Chooser", autoChooser);
     previousSelectedAuto = autoChooser.getSelected();
+    autonomousCommand =  AutoBuilder.buildAuto(previousSelectedAuto.name);
 
-
-//    autonomousCommand =  AutoBuilder.buildAuto(previousSelectedAuto.name);
   }
 
   @Override
@@ -60,18 +67,23 @@ public class Robot extends TimedRobot {
   public void disabledInit() {}
 
   @Override
-  public void disabledPeriodic() {}
+  public void disabledPeriodic() {
+    if(previousSelectedAuto != autoChooser.getSelected()) {
+      previousSelectedAuto = autoChooser.getSelected();
+    }
+
+    autonomousCommand = AutoBuilder.buildAuto(previousSelectedAuto.name);
+
+  }
 
   @Override
   public void disabledExit() {}
 
   @Override
   public void autonomousInit() {
-    autonomousCommand = robotContainer.getAutonomousCommand();
 
-    if (autonomousCommand != null) {
       autonomousCommand.schedule();
-    }
+
   }
 
   @Override

@@ -4,8 +4,6 @@ package frc.robot;
 import com.pathplanner.lib.path.PathConstraints;
 import frc.robot.generated.TunerConstants;
 
-import java.nio.file.Path;
-
 public final class AutoConstants {
 
     public static final double MAX_SPEED = TunerConstants.kSpeedAt12VoltsMps;
@@ -19,7 +17,12 @@ public final class AutoConstants {
             MAX_THETA_ACCEL);
 
     public enum AutoModes {
-        TESTING("mid3ThreePiece", DEFAULT_CONSTRAINTS);
+        TESTING("amp4ThreePiece", DEFAULT_CONSTRAINTS),
+        AMP_5_THREE_PIECE("amp5ThreePiece", DEFAULT_CONSTRAINTS),
+        SOURCE_4_THREE_PIECE("source4ThreePiece", DEFAULT_CONSTRAINTS),
+        AMP_4_THREE_PIECE("amp4ThreePiece", DEFAULT_CONSTRAINTS),
+        NEW_AUTO("New Auto", DEFAULT_CONSTRAINTS),
+        MID_3_THREE_PIECE("mid3ThreePiece",DEFAULT_CONSTRAINTS);
 
         public final String name;
         public final PathConstraints initConstraint;

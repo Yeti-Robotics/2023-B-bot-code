@@ -3,16 +3,18 @@
   "robotLength": 0.75,
   "holonomicMode": true,
   "pathFolders": [
-    "mid",
+    "3-6 Amp auto",
     "amp 4",
     "amp 5",
+    "mid",
     "mid 3 amp side",
     "source 4 "
   ],
   "autoFolders": [
-    "mid",
+    "3-6 Amp auto",
     "amp 4",
     "amp 5",
+    "mid",
     "mid 3 amp side",
     "source 4"
   ],
