@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.73,
-      "y": 6.56
+      "x": 0.74,
+      "y": 6.6
     },
-    "rotation": -119.78487261720137
+    "rotation": -122.84290614931392
   },
   "command": {
     "type": "sequential",
@@ -14,24 +14,24 @@
         {
           "type": "path",
           "data": {
-            "pathName": "amp5NoteOne"
+            "pathName": "new1"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "amp5NoteTwo"
+            "pathName": "new2"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "amp5NoteThree"
+            "pathName": "new3"
           }
         }
       ]
     }
   },
-  "folder": "amp 5",
+  "folder": "3-6 Amp auto",
   "choreoAuto": false
 }

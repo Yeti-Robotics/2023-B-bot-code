@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.21,
-      "y": 6.45
+      "x": 0.76,
+      "y": 6.6
     },
-    "rotation": 0.0
+    "rotation": -120.38633555364974
   },
   "command": {
     "type": "sequential",
@@ -26,7 +26,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "mid3NoteThree"
+            "pathName": "mid3Note2.5"
           }
         },
         {
